@@ -1,4 +1,5 @@
 import weather.WeatherServiceFactory;
+import weather.WeatherService;
 
 public class Main {
 
@@ -30,8 +31,9 @@ public class Main {
 
     public static void runApp(String service, String number){
 
-        WeatherServiceFactory weather = new WeatherServiceFactory();
-        String forecast = weather.weatherForecast(service);
+        WeatherServiceFactory factory = new WeatherServiceFactory();
+        WeatherService weather = factory.getWeatherService(service);
+        String forecast = weather.getWeather();
         SmsSender.sendSMS(forecast, number);
     }
 }

@@ -5,20 +5,20 @@ import weather.DefaultWeather;
 
 public class WeatherServiceFactory {
 
-    DarkSkyWeather darkSkyForecast;
-    DefaultWeather defaultForecast;
+    DarkSkyWeather darkSkyService;
+    DefaultWeather defaultService;
 
     public WeatherServiceFactory() {
-        darkSkyForecast = new DarkSkyWeather();
-        defaultForecast = new DefaultWeather();
+        darkSkyService = new DarkSkyWeather();
+        defaultService = new DefaultWeather();
     }
 
-    public String weatherForecast(String service) {
+    public WeatherService getWeatherService(String service) {
 
         if (service.equals("DarkSky")) {
-            return darkSkyForecast.getWeather();
+            return darkSkyService;
         } else {
-            return defaultForecast.getWeather();
+            return defaultService;
         }
     }
 }
